@@ -1,0 +1,32 @@
+{% load static %}
+{% load custom_date %}
+
+<div class="post">
+    <div class="post-content">
+        <div class="post-content__feature-image">
+            <img src="{{ post.featured_image }}" alt="{{ post.featured_image_alt }}">
+        </div>
+        <div class="post-card">
+            <h3 class="post-content__title">
+                <a href="{% url 'blog_post' post.slug %}">{{ post.title }}</a>
+            </h3>
+            <div class="post-meta">
+                <div class="subtitle post-meta__data">
+                    <img class="icon" src="{% static 'images/person_gray.png' %}"/>
+                    {{ post.author.first_name }} {{ post.author.last_name }}
+                </div>
+                <div class="subtitle post-meta__data">
+                    <img class="icon" src="{% static 'images/time_gray.png' %}"/>
+                    {{ post.published|custom_date:"SHORT_DATETIME_FORMAT"}}
+                </div>
+            </div>
+            <p class="post-card__summary">
+                {{post.summary|truncatechars:200}}
+            </p>
+            <a class="post-card__link button_primary" href="{% url 'blog_post' post.slug %}">
+                Read More
+            </a>
+        </div>
+
+    </div>
+</div>

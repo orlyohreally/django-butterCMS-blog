@@ -1,0 +1,93 @@
+.banner {
+  background-image: url("../images/forest.jpg");
+}
+
+.list-title {
+  padding: 0px 0px 10px;
+  color: #2f2f33;
+  display: block;
+  font-size: 18px;
+  margin: 0;
+  position: relative;
+  font-weight: 500;
+  text-align: left;
+  border-bottom: 1px solid #7067cf;
+  min-width: 40%;
+  width: fit-content;
+}
+
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.post {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.post-content {
+  background: #fff;
+  border: 1px solid #f0f1f2;
+  padding: 10px 20px;
+  height: 100%;
+}
+
+.post-content__feature-image {
+  width: calc(100% + 40px);
+  margin: -10px -10px 0 -20px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.post-content__title {
+  font-size: 18px;
+}
+
+.post-content__summary {
+  color: #8e8e95;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.post-card {
+  height: calc(100% - 200px);
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card__summary {
+  color: #8e8e95;
+  line-height: 24px;
+  margin: 10px 0;
+}
+
+.post-meta {
+  display: flex;
+}
+
+.post-meta__data {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.post-meta__data:last-child {
+  margin-right: 0;
+}
+
+.post-card__link {
+  margin-bottom: 0;
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+@media only screen and (min-width: 768px) {
+  .post {
+    max-width: 50%;
+    width: 400px;
+  }
+}

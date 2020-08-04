@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/posts-list.css' %}">
+{% endblock %}
+
+{% block meta_tags %}
+    <title>Recent posts</title>
+    <meta name="description" content="List of 10 recent blog posts fetched from ButterCMS" />
+{% endblock %}
+
+{% block header %}
+<div class="banner">
+    <div class="shadow-block">
+        <h1 class="banner__title">Django Blog</h1>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<h2 class="list-title">Recent posts</h2>
+<div class="posts">
+{% for post in recent_posts %}
+    {% include "post-preview.html" %}
+{% endfor %}
+</div>
+{% endblock %}

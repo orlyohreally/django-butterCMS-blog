@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/index-page.css' %}">
+{% endblock %}
+        
+
+{% block content %}
+    <div id="app">
+        <div v-if="!loaded">
+            <div>Loading...</div>
+        </div>
+        <div v-else>
+            <h1>[[page.fields.title]]</h1>
+            <div v-html="page.fields.content"> </div>
+        </div>
+    </div>
+{% endblock%}
+
+{% block script_tags %}
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.buttercms.com/buttercms-1.2.3.min.js"></script>
+    <script>
+    var butter = Butter("{{ butterCMS_token|safe }}");
+    var app = new Vue({
+        delimiters: ['[[', ']]'],
+        el: '#app',
+        data: {
+            loaded: false,
+            page: {
+                fields: {
+                    title: '',
+                    content: ''
+                }
+            }          
+        },
+        methods: {
+            getPage() {
+                butter.page.retrieve('*', 'how-to-create-a-family-with-family-members', 
+                    {locale: 'en'}
+                )
+                .then((res) => {
+                    console.log(res.data.data);
+                    this.page = res.data.data;
+                    this.loaded = true;
+                }).catch((res) => {
+                    console.log(res)
+                    this.loaded = true;
+                })
+            },
+        },
+        created() {
+            console.log('created')
+            this.getPage()
+        }
+    });
+  </script>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load custom_date %}
+
+{% block meta_tags %}
+<title>{{ post.seo_title }}</title>
+<meta name="description" content="{{ post.meta_description }}" />
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/post.css' %}">
+{% endblock %}
+
+{% block header %}
+<div class="post-header" style="background-image: url('{{post.featured_image}}');">
+    <div class="shadow-block">
+        <div class="post-card">
+            <h1 class="post-card__title">{{ post.title }}</h1>
+            <div class="categories">
+                {% for category in post.categories %}
+                <div  class="categories__category">{{ category.name }}</div>
+                {% endfor %}
+            </div>
+            <div class="post-meta">
+                <div  class="subtitle post-meta__data">
+                    <img class="icon" src="{% static 'images/person_white.png' %}"/>
+                    {{ post.author.first_name }} {{ post.author.last_name }}
+                </div>
+                <div class="subtitle post-meta__data">
+                    <img class="icon" src="{% static 'images/time_white.png' %}"/>
+                    {{ post.published|custom_date:"SHORT_DATETIME_FORMAT"}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+{{ post.body|safe }}
+{% endblock %}

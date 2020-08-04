@@ -1,0 +1,10 @@
+{% load active_link_tags %}
+
+<ul class="navigation">
+    <li class="navigation-item {% active_link 'index' 'navigation__item_active' %}">
+        <a class="navigation-item__link" href="{% url 'index' %}">Home</a>
+    </li>
+    <li class="navigation-item {% active_link 'blog' 'navigation__item_active' %}">
+        <a class="navigation-item__link" href="{% url 'blog' %}">Blog</a>
+    </li>
+</ul>
