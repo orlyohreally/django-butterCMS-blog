@@ -27,20 +27,20 @@ cd blog_env
 git clone https://github.com/orlyohreally/django-butterCMS-blog.git
 ```
 
-Create .env file in the same location and the same structure as .env.example file 
+Create .env file in the same location and with the same structure as .env.example file 
 
 Install all the requirements for the project
 ```
-cd Scripts
-pip install -r ..\django-butterCMS-blog\requirements.txt
+cd django-butterCMS-blog
+pip install -r requirements.txt
 ```
 
 Run the development server
 ```
-manage.py runserver
+python manage.py runserver
 ```
 
-The project will be available at http://127.0.0.1:8000/posts/.
+The project will be available at http://127.0.0.1:8000/.
 
 ## Built with
 * [Django](https://www.djangoproject.com/) - Python Web framework
