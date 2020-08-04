@@ -42,17 +42,14 @@
                     {locale: 'en'}
                 )
                 .then((res) => {
-                    console.log(res.data.data);
                     this.page = res.data.data;
                     this.loaded = true;
                 }).catch((res) => {
-                    console.log(res)
                     this.loaded = true;
                 })
             },
         },
         created() {
-            console.log('created')
             this.getPage()
         }
     });
