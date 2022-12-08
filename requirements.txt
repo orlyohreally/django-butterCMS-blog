@@ -1,6 +1,6 @@
 asgiref==3.2.10
 buttercms-python==1.2
-certifi==2020.6.20
+certifi==2022.12.7
 chardet==3.0.4
 Django==3.0.9
 django-active-link==0.1.6
